@@ -44,8 +44,9 @@ table filter {
     }
 
     chain TCP {
-        proto tcp dport 22    ACCEPT; # allow SSH connections
-        proto tcp dport 32400 ACCEPT; # allow Plex connections
+{% for port in iptables['input']['tcp'] %}
+        proto tcp dport {{ port }} ACCEPT;
+{% endfor %}
     }
 
     chain UDP {

@@ -1,0 +1,5 @@
+---
+iptables:
+  input:
+    tcp:
+      - 22
